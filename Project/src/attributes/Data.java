@@ -79,8 +79,7 @@ public class Data implements DataInterface{
 	}
 
 	@Override
-	public void assignStudenttoSession(String studentId, String sessionName,
-			String courseName) {
+	public void assignStudenttoSession(String studentId, String sessionName) {
 		Student s = getStudent(studentId);
 		Session session = getSession(sessionName);
 		session.getStudents().put(studentId, s);	
@@ -112,6 +111,11 @@ public class Data implements DataInterface{
 		for (Entry<String, Course> entry: myCampusCourses.entrySet()){
 			courses.put(entry.getKey(), entry.getValue());
 		}		
+	}
+
+	@Override
+	public Set<Course> getCoursesForStudent(String studentId) {
+		return (Set<Course>) getStudent(studentId).getCourses();
 	}
 
 

@@ -14,6 +14,12 @@ public class Room {
 		this.sessions = sessions;
 		this.isAvailable = true;
 	}
+	
+	@Override
+	public String toString(){
+		return "Room name: " + roomName;
+		
+	}
 
 	public String getRoomName() {
 		return roomName;

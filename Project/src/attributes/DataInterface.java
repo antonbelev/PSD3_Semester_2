@@ -14,9 +14,11 @@ public interface DataInterface {
 	
 	public void assignStudentToCourse(String studentId, String courseName);
 	
-	public void assignStudenttoSession(String studentId, String sessionName, String courseName);
+	public void assignStudenttoSession(String studentId, String sessionName);
 	
 	public Set<Student> getStudentsForCourse(String courseName);
+	
+	public Set<Course> getCoursesForStudent(String studentId);
 	
 	public Set<Session> getSessionsForCourse(String courseName);
 	

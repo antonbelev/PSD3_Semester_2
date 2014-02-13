@@ -1,9 +1,12 @@
 package users;
 
 import java.util.Date;
+import java.util.Set;
 
+import attributes.Course;
 import attributes.DataInterface;
 import attributes.MyCampusService;
+import attributes.Session;
 import enums.SessionEnum;
 
 public class User implements AdminInterface, LecturerInterface,
@@ -40,15 +43,14 @@ public class User implements AdminInterface, LecturerInterface,
 	}
 
 	@Override
-	public void bookCourseSessionSlots(String studentID, String courseName)
+	public void bookCourseSessionSlots(String studentID, String sessionName)
 			throws IllegalOperationException {
 
 		if (!isStudent)
 			throw new IllegalOperationException(
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
-
-		
+			data.assignStudenttoSession(studentID, sessionName);
 		}
 	}
 
@@ -61,7 +63,24 @@ public class User implements AdminInterface, LecturerInterface,
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
 
-			return null;
+			Set<Course> courseSet = data.getCoursesForStudent(studentID);
+			Course course = null;
+			for (Course c : courseSet){
+				if (c.getCourseName().equals(courseName))
+				{
+					course = c;
+					break;
+				}
+			}
+			
+			String sessionReport = "Compousory sessions: \n";
+			
+			for (Session s : course.getSessions().values()){
+				if (s.isCompulsory())
+					sessionReport += s.toString() + "\n";
+			}
+			
+			return sessionReport;
 		}
 	}
 
@@ -99,7 +118,7 @@ public class User implements AdminInterface, LecturerInterface,
 			throws IllegalOperationException {
 		if (!isAdmin)
 			throw new IllegalOperationException(
-					"Permission denined. The current user does not have the permissions to execute this operation");
+					"Permission) denined. The current user does not have the permissions to execute this operation");
 		else {
 
 

@@ -10,17 +10,34 @@ public class Session {
 	private Date end;
 	private HashMap<String, Student> students = new HashMap<String, Student>();
 	private Room room;	
+	private boolean isCompulsory;
 	
 	public Session(String sessionName, Date start, Date end,
-			HashMap<String, Student> students, Room room) {
+			HashMap<String, Student> students, Room room, boolean isCompulsory) {
 		super();
 		this.sessionName = sessionName;
 		this.start = start;
 		this.end = end;
 		this.students = students;
 		this.room = room;
+		this.isCompulsory = isCompulsory;
 	}
 	
+	@Override
+	public String toString(){
+		return "Session name: " + sessionName + " start: " + start +
+				 " end: " + end + " room: " + room + " isCompulsory: " + isCompulsory;
+		
+	}
+	
+	public boolean isCompulsory() {
+		return isCompulsory;
+	}
+
+	public void setCompulsory(boolean isCompulsory) {
+		this.isCompulsory = isCompulsory;
+	}
+
 	public String getSessionName() {
 		return sessionName;
 	}

@@ -7,16 +7,24 @@ public class Course {
 	private String courseName;
 	private HashMap<String, Student> studentsEnrolled = new HashMap<String, Student>();
 	private HashMap<String, Session> sessions = new HashMap<String, Session>();
-	private boolean isCompulsory;
+	
 
 	public Course(String courseName, HashMap<String, Student> studentsEnrolled,
-			HashMap<String, Session> sessions, boolean isCompulsory) {
+			HashMap<String, Session> sessions) {
 		super();
 		this.courseName = courseName;
 		this.studentsEnrolled = studentsEnrolled;
 		this.sessions = sessions;
-		this.isCompulsory = isCompulsory;
 	}
+	
+	@Override
+	public String toString(){
+		String s = "Course name " + courseName;		
+		for (Session session: sessions.values())
+			s += session.toString() + " \n";		
+		return s;		
+	}
+	
 
 	public String getCourseName() {
 		return courseName;
@@ -41,12 +49,6 @@ public class Course {
 	public void setSessions(HashMap<String, Session> sessions) {
 		this.sessions = sessions;
 	}
-
-	public boolean isCompulsory() {
-		return isCompulsory;
-	}
-
-	public void setCompulsory(boolean isCompulsory) {
-		this.isCompulsory = isCompulsory;
-	}
+	
+	
 }
