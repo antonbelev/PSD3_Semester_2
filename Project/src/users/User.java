@@ -63,24 +63,7 @@ public class User implements AdminInterface, LecturerInterface,
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
 
-			Set<Course> courseSet = data.getCoursesForStudent(studentID);
-			Course course = null;
-			for (Course c : courseSet){
-				if (c.getCourseName().equals(courseName))
-				{
-					course = c;
-					break;
-				}
-			}
-			
-			String sessionReport = "Compousory sessions: \n";
-			
-			for (Session s : course.getSessions().values()){
-				if (s.isCompulsory())
-					sessionReport += s.toString() + "\n";
-			}
-			
-			return sessionReport;
+			return data.checkCoursesCompousorySessions(studentID, courseName);
 		}
 	}
 
@@ -98,7 +81,8 @@ public class User implements AdminInterface, LecturerInterface,
 	@Override
 	public void specifySessionTimeframe(String sessionName,
 			SessionEnum timeframe) throws IllegalOperationException {
-		// TODO Auto-generated method stub
+		
+		data.specifySessionTimeframe(sessionName, timeframe);
 	}
 
 	@Override
@@ -121,7 +105,7 @@ public class User implements AdminInterface, LecturerInterface,
 					"Permission) denined. The current user does not have the permissions to execute this operation");
 		else {
 
-			
+			data.assignRoomToSlot(roomName, sessionName);
 		}
 	}
 
@@ -133,7 +117,8 @@ public class User implements AdminInterface, LecturerInterface,
 			throw new IllegalOperationException(
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
-
+			data.createSlotForSession(start, end, courseName, sessionName);
+			
 		}
 	}
 

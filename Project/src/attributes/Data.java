@@ -1,8 +1,11 @@
 package attributes;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import enums.SessionEnum;
 
 public class Data implements DataInterface{
 	
@@ -116,6 +119,49 @@ public class Data implements DataInterface{
 	@Override
 	public Set<Course> getCoursesForStudent(String studentId) {
 		return (Set<Course>) getStudent(studentId).getCourses();
+	}
+
+	@Override
+	public String checkCoursesCompousorySessions(String studentID,
+			String courseName) {
+		Set<Course> courseSet = getCoursesForStudent(studentID);
+		Course course = null;
+		for (Course c : courseSet){
+			if (c.getCourseName().equals(courseName))
+			{
+				course = c;
+				break;
+			}
+		}
+		
+		String sessionReport = "Compousory sessions: \n";
+		
+		for (Session s : course.getSessions().values()){
+			if (s.isCompulsory())
+				sessionReport += s.toString() + "\n";
+		}
+		
+		return sessionReport;
+	}
+
+	@Override
+	public void createSlotForSession(Date start, Date end, String courseName,
+			String sessionName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void assignRoomToSlot(String roomName, String sessionName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void specifySessionTimeframe(String sessionName,
+			SessionEnum timeframe) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
