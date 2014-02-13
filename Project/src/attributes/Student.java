@@ -13,6 +13,12 @@ public class Student {
 		this.name = name;
 		this.courses = courses;
 	}
+	
+	@Override
+	public String toString(){
+		return "StudentID : " + id + " Student name: " + name;
+		
+	}
 
 	public String getId() {
 		return id;

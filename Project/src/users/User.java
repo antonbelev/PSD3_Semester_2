@@ -91,7 +91,7 @@ public class User implements AdminInterface, LecturerInterface,
 			throw new IllegalOperationException(
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
-
+			data.assignSessionToCourse(sessionName, coursename);
 		}
 	}
 
@@ -108,8 +108,8 @@ public class User implements AdminInterface, LecturerInterface,
 			throw new IllegalOperationException(
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
-
-			return null;
+			
+			return data.getSession(sessionName).sessionInformation();
 		}
 	}
 
@@ -121,7 +121,7 @@ public class User implements AdminInterface, LecturerInterface,
 					"Permission) denined. The current user does not have the permissions to execute this operation");
 		else {
 
-
+			
 		}
 	}
 

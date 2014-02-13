@@ -30,6 +30,17 @@ public class Session {
 		
 	}
 	
+	public String sessionInformation() {
+		String students = "Students enrolled: \n";
+		String information = toString();
+		
+		for (Student s : getStudents().values()){
+			students += students + "\n";
+		}
+		
+		return information + students;
+	}
+	
 	public boolean isCompulsory() {
 		return isCompulsory;
 	}
