@@ -1,6 +1,10 @@
 package attributes;
 
+import java.util.Date;
 import java.util.Set;
+
+import enums.SessionEnum;
+import users.IllegalOperationException;
 
 public interface DataInterface {
 
@@ -25,4 +29,14 @@ public interface DataInterface {
 	public Set<Student> getStudentsForSession(String sessionName, String courseName);
 	
 	public void importCourseFromMyCampus(MyCampusService myCampusService);
+	
+	public String checkCoursesCompousorySessions(String studentID, String courseName);
+	
+	public void createSlotForSession(Date start, Date end,
+			String courseName, String sessionName);
+	
+	public void assignRoomToSlot(String roomName, String sessionName);
+	
+	public void specifySessionTimeframe(String sessionName,
+			SessionEnum timeframe);
 }
