@@ -1,18 +1,18 @@
 package attributes;
 
 import java.util.Date;
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Session {
 	
 	private String sessionName;
 	private Date start;
 	private Date end;
-	private HashSet<Student> students = new HashSet<Student>();
+	private HashMap<String, Student> students = new HashMap<String, Student>();
 	private Room room;	
 	
 	public Session(String sessionName, Date start, Date end,
-			HashSet<Student> students, Room room) {
+			HashMap<String, Student> students, Room room) {
 		super();
 		this.sessionName = sessionName;
 		this.start = start;
@@ -39,10 +39,10 @@ public class Session {
 	public void setEnd(Date end) {
 		this.end = end;
 	}
-	public HashSet<Student> getStudents() {
+	public HashMap<String, Student> getStudents() {
 		return students;
 	}
-	public void setStudents(HashSet<Student> students) {
+	public void setStudents(HashMap<String, Student> students) {
 		this.students = students;
 	}
 	public Room getRoom() {

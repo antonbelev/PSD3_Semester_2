@@ -1,16 +1,16 @@
 package attributes;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Course {
 	
 	private String courseName;
-	private HashSet<Student> studentsEnrolled = new HashSet<Student>();
-	private HashSet<Session> sessions = new HashSet<Session>();
+	private HashMap<String, Student> studentsEnrolled = new HashMap<String, Student>();
+	private HashMap<String, Session> sessions = new HashMap<String, Session>();
 	private boolean isCompulsory;
 
-	public Course(String courseName, HashSet<Student> studentsEnrolled,
-			HashSet<Session> sessions, boolean isCompulsory) {
+	public Course(String courseName, HashMap<String, Student> studentsEnrolled,
+			HashMap<String, Session> sessions, boolean isCompulsory) {
 		super();
 		this.courseName = courseName;
 		this.studentsEnrolled = studentsEnrolled;
@@ -26,19 +26,19 @@ public class Course {
 		this.courseName = courseName;
 	}
 
-	public HashSet<Student> getStudentsEnrolled() {
+	public HashMap<String, Student> getStudentsEnrolled() {
 		return studentsEnrolled;
 	}
 
-	public void setStudentsEnrolled(HashSet<Student> studentsEnrolled) {
+	public void setStudentsEnrolled(HashMap<String, Student> studentsEnrolled) {
 		this.studentsEnrolled = studentsEnrolled;
 	}
 
-	public HashSet<Session> getSessions() {
+	public HashMap<String, Session> getSessions() {
 		return sessions;
 	}
 
-	public void setSessions(HashSet<Session> sessions) {
+	public void setSessions(HashMap<String, Session> sessions) {
 		this.sessions = sessions;
 	}
 

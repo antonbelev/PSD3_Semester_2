@@ -2,16 +2,19 @@ package users;
 
 import java.util.Date;
 
-import enums.SessionEnum;
+import attributes.DataInterface;
 import attributes.MyCampusService;
+import enums.SessionEnum;
 
-public class User implements AdminInterface, LecturerInterface, StudentInterface, TutorInterface{
+public class User implements AdminInterface, LecturerInterface,
+		StudentInterface, TutorInterface {
 
 	private boolean isAdmin;
 	private boolean isStudent;
 	private boolean isLecturer;
 	private boolean isTutor;
-	
+	private DataInterface data;
+
 	public User(boolean isAdmin, boolean isStudent, boolean isLecturer,
 			boolean isTutor) {
 		this.isAdmin = isAdmin;
@@ -20,102 +23,99 @@ public class User implements AdminInterface, LecturerInterface, StudentInterface
 		this.isTutor = isTutor;
 	}
 
+	public void setData(DataInterface data) {
+		this.data = data;
+	}
+
 	@Override
-	public boolean importCourseFromMyCampus(MyCampusService myCampusService)
+	public void importCourseFromMyCampus(MyCampusService myCampusService)
 			throws IllegalOperationException {
-		
+
 		if (!isLecturer)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
-			return true;
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+			data.importCourseFromMyCampus(myCampusService);
 		}
 	}
 
 	@Override
-	public boolean bookCourseSessionSlots(String studentName, String courseName)
+	public void bookCourseSessionSlots(String studentID, String courseName)
 			throws IllegalOperationException {
 
 		if (!isStudent)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
-			return true;
-		}
-	}
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
 
-	@Override
-	public String checkCoursesCompousorySessions(String studentName, String courseName)
-			throws IllegalOperationException {
 		
+		}
+	}
+
+	@Override
+	public String checkCoursesCompousorySessions(String studentID,
+			String courseName) throws IllegalOperationException {
+
 		if (!isStudent)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+
 			return null;
 		}
 	}
 
 	@Override
-	public boolean addSessionToCourse(String sessionName, String coursename)
+	public void addSessionToCourse(String sessionName, String coursename)
 			throws IllegalOperationException {
 		if (!isLecturer)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
-			return true;
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+
 		}
 	}
 
 	@Override
-	public boolean specifySessionTimeframe(String sessionName,
+	public void specifySessionTimeframe(String sessionName,
 			SessionEnum timeframe) throws IllegalOperationException {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
 	public String seeSessionSlotsInformation(String sessionName)
 			throws IllegalOperationException {
 		if (!isLecturer)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+
 			return null;
 		}
 	}
 
 	@Override
-	public boolean assignRoomToSlot(String roomName, String sessionName)
+	public void assignRoomToSlot(String roomName, String sessionName)
 			throws IllegalOperationException {
 		if (!isAdmin)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
-			return true;
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+
+
 		}
 	}
 
 	@Override
-	public boolean createSlotForSession(Date start, Date end,
+	public void createSlotForSession(Date start, Date end,
 			String courseName, String sessionName)
 			throws IllegalOperationException {
 		if (!isAdmin)
-			throw new IllegalOperationException("Permission denined. The current user does not have the permissions to execute this operation");
-		else
-		{
-			
-			return true;
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+
 		}
 	}
 
-	
-	
-	
 }

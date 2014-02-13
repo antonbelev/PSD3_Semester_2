@@ -1,14 +1,14 @@
 package attributes;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Student {
 	
 	private String id;
 	private String name;
-	private HashSet<Course> courses;
+	private HashMap<String, Course> courses = new HashMap<String, Course>();
 	
-	public Student(String id, String name, HashSet<Course> courses) {
+	public Student(String id, String name, HashMap<String, Course> courses) {
 		this.id = id;
 		this.name = name;
 		this.courses = courses;
@@ -30,11 +30,11 @@ public class Student {
 		this.name = name;
 	}
 
-	public HashSet<Course> getCourses() {
+	public HashMap<String, Course> getCourses() {
 		return courses;
 	}
 
-	public void setCourses(HashSet<Course> courses) {
+	public void setCourses(HashMap<String, Course> courses) {
 		this.courses = courses;
 	}
 }

@@ -1,38 +1,119 @@
 package attributes;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
-public class Data {
+public class Data implements DataInterface{
 	
-	private HashSet<Course> courses = new HashSet<Course>();
-	private HashSet<Student> students = new HashSet<Student>();
-	private HashSet<Session> sessions = new HashSet<Session>();
-		
-	public Data(HashSet<Course> courses, HashSet<Student> students,
-			HashSet<Session> sessions) {
-		super();
-		this.courses = courses;
-		this.students = students;
-		this.sessions = sessions;
+	private HashMap<String, Course> courses; 
+	private HashMap<String, Student> students;
+	private HashMap<String, Session> sessions;
+	
+	private static Data dataInstance;
+	
+	public Data() {
+		this.courses = new HashMap<String, Course>();
+		this.students = new HashMap<String, Student>();
+		this.sessions = new HashMap<String, Session>();
 	}
 	
-	public HashSet<Course> getCourses() {
+	public static Data getSingleton() {
+		if (dataInstance == null) {
+			dataInstance = new Data();
+		}
+		return dataInstance;
+	}
+
+	public HashMap<String, Course> getCourses() {
 		return courses;
 	}
-	public void setCourses(HashSet<Course> courses) {
+
+	public void setCourses(HashMap<String, Course> courses) {
 		this.courses = courses;
 	}
-	public HashSet<Student> getStudents() {
+
+	public HashMap<String, Student> getStudents() {
 		return students;
 	}
-	public void setStudents(HashSet<Student> students) {
+
+	public void setStudents(HashMap<String, Student> students) {
 		this.students = students;
 	}
-	public HashSet<Session> getSessions() {
+
+	public HashMap<String, Session> getSessions() {
 		return sessions;
 	}
-	public void setSessions(HashSet<Session> sessions) {
+
+	public void setSessions(HashMap<String, Session> sessions) {
 		this.sessions = sessions;
 	}
+
+	@Override
+	public Student getStudent(String studentId) {
+		return students.get(studentId);
+	}
+
+	@Override
+	public Course getCourse(String courseName) {
+		return courses.get(courseName);
+	}
+
+	@Override
+	public Session getSession(String sessionName) {
+		return sessions.get(sessionName);
+	}
+
+	@Override
+	public void assignSessionToCourse(String sessionName, String courseName) {
+		Session s = getSession(sessionName);
+		Course c = getCourse(courseName);
+		c.getSessions().put(s.getSessionName(), s);
+	}
+
+	@Override
+	public void assignStudentToCourse(String studentId, String courseName) {
+		Student s = getStudent(studentId);
+		Course c = getCourse(courseName);
+		c.getStudentsEnrolled().put(studentId, s);
+	}
+
+	@Override
+	public void assignStudenttoSession(String studentId, String sessionName,
+			String courseName) {
+		Student s = getStudent(studentId);
+		Session session = getSession(sessionName);
+		session.getStudents().put(studentId, s);	
+	}
+
+	@Override
+	public Set<Student> getStudentsForCourse(String courseName) {
+		Course c = getCourse(courseName);
+		return (Set<Student>) c.getStudentsEnrolled().values();
+	}
+
+	@Override
+	public Set<Session> getSessionsForCourse(String courseName) {
+		Course c = getCourse(courseName);
+		return (Set<Session>) c.getSessions().values();
+	}
+
+	@Override
+	public Set<Student> getStudentsForSession(String sessionName,
+			String courseName) {
+		Session s = getSession(sessionName);
+		return (Set<Student>) s.getStudents().values();
+	}
+
+	@Override
+	public void importCourseFromMyCampus(MyCampusService myCampusService) {
+		HashMap<String, Course> myCampusCourses =  myCampusService.getCourses();		
+		
+		for (Entry<String, Course> entry: myCampusCourses.entrySet()){
+			courses.put(entry.getKey(), entry.getValue());
+		}		
+	}
+
+
 	
 }

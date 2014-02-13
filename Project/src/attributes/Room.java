@@ -1,15 +1,18 @@
 package attributes;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Room {
 	
 	private String roomName;
-	private HashSet<Session> sessions = new HashSet<Session>();
+	private boolean isAvailable;
+	private HashMap<String, Session> sessions = new HashMap<String, Session>();
 	
-	public Room(String roomName, HashSet<Session> sessions) {
+	public Room(String roomName, HashMap<String, Session> sessions) {
 		this.roomName = roomName;
 		this.sessions = sessions;
+		this.isAvailable = true;
 	}
 
 	public String getRoomName() {
@@ -20,11 +23,20 @@ public class Room {
 		this.roomName = roomName;
 	}
 
-	public HashSet<Session> getSessions() {
+	public HashMap<String, Session> getSessions() {
 		return sessions;
 	}
 
-	public void setSessions(HashSet<Session> sessions) {
+	public void setSessions(HashMap<String, Session> sessions) {
 		this.sessions = sessions;
 	}
+
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	
 }

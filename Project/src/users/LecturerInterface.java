@@ -5,13 +5,13 @@ import attributes.MyCampusService;
 
 public interface LecturerInterface {
 	
-	public boolean importCourseFromMyCampus(MyCampusService myCampusService) 
+	public void importCourseFromMyCampus(MyCampusService myCampusService) 
 			throws IllegalOperationException;						
 	
-	public boolean addSessionToCourse(String sessionName, String coursename)
+	public void addSessionToCourse(String sessionName, String coursename)
 			throws IllegalOperationException;
 	
-	public boolean specifySessionTimeframe(String sessionName, SessionEnum timeframe)
+	public void specifySessionTimeframe(String sessionName, SessionEnum timeframe)
 			throws IllegalOperationException;
 	
 	public String seeSessionSlotsInformation(String sessionName)
