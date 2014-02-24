@@ -1,0 +1,9 @@
+Better formatted file can be found here:
+
+https://docs.google.com/document/d/1u4LDNpDM24pM7r9GAZL9lBWTLH-snn0CjxcfaJlZ43k/edit
+
+
+User story 1
+    attributes.Data.java is holding hash maps of courses, students and sessions available. To test if the lecturer is importing successfully courses we need to invoke the method public void importCourseFromMyCampus(MyCampusService myCampusService). 
+
+    Acceptance conditions - if the invocation of this method has populated the courses, students and sessions with the same data as the dummy data provided by the MyCampusService then the method should pass the JUnit test case.

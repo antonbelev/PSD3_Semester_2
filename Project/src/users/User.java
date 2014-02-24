@@ -1,12 +1,10 @@
 package users;
 
 import java.util.Date;
-import java.util.Set;
 
-import attributes.Course;
+import attributes.Data;
 import attributes.DataInterface;
 import attributes.MyCampusService;
-import attributes.Session;
 import enums.SessionEnum;
 
 public class User implements AdminInterface, LecturerInterface,
@@ -15,19 +13,22 @@ public class User implements AdminInterface, LecturerInterface,
 	private boolean isAdmin;
 	private boolean isStudent;
 	private boolean isLecturer;
-	private boolean isTutor;
-	private DataInterface data;
+	private Data data;
 
 	public User(boolean isAdmin, boolean isStudent, boolean isLecturer,
-			boolean isTutor) {
+			boolean isTutor, Data data) {
 		this.isAdmin = isAdmin;
 		this.isStudent = isStudent;
 		this.isLecturer = isLecturer;
-		this.isTutor = isTutor;
+		this.data = data;
 	}
 
-	public void setData(DataInterface data) {
+	public void setData(Data data) {
 		this.data = data;
+	}
+
+	public Data getData() {
+		return data;
 	}
 
 	@Override

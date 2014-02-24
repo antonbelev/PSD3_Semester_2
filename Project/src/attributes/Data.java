@@ -111,8 +111,16 @@ public class Data implements DataInterface{
 	public void importCourseFromMyCampus(MyCampusService myCampusService) {
 		HashMap<String, Course> myCampusCourses =  myCampusService.getCourses();		
 		
-		for (Entry<String, Course> entry: myCampusCourses.entrySet()){
-			courses.put(entry.getKey(), entry.getValue());
+		for (Entry<String, Course> course: myCampusCourses.entrySet()){
+			courses.put(course.getKey(), course.getValue());
+			
+			for (Entry<String, Student> student : course.getValue().getStudentsEnrolled().entrySet()){
+				students.put(student.getKey(), student.getValue());
+			}
+			
+			for (Entry<String, Session> session : course.getValue().getSessions().entrySet()){
+				sessions.put(session.getKey(), session.getValue());
+			}
 		}		
 	}
 

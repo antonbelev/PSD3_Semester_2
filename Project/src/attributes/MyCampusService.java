@@ -7,7 +7,7 @@ import enums.SessionEnum;
 
 public class MyCampusService {
 	
-	private HashMap<String, Course> courses;
+	private static HashMap<String, Course> courses;
 	
 	private static MyCampusService myCampuseInstance;
 
@@ -45,6 +45,13 @@ public class MyCampusService {
 		
 		c1.getSessions().put(sess1.getSessionName(), sess1);
 		c1.getStudentsEnrolled().put(s1.getName(), s1);
+		
+		courses.put(c1.getCourseName(), c1);		
+	}
+
+	@Override
+	public String toString() {
+		return "MyCampusService [courses=" + courses + "]";
 	}
 	
 	
