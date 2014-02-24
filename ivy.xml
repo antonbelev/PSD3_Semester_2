@@ -1,0 +1,7 @@
+<ivy-module version="2.0">
+    <info organisation="teamn" module="PSD3_Semester_2"/> 
+
+    <dependencies>    
+        <dependency org="junit" name="junit" conf="default" rev="4.8.2"/>                            
+    </dependencies>
+</ivy-module>
