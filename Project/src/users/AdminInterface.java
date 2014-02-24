@@ -8,7 +8,7 @@ public interface AdminInterface {
 			throws IllegalOperationException;
 	
 	
-	public void createSlotForSession(Date start, Date end, String courseName, String sessionName)
+	public void createSlotForSession(Date start, Date end, String sessionName)
 			throws IllegalOperationException;
 
 }

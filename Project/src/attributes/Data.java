@@ -145,23 +145,24 @@ public class Data implements DataInterface{
 	}
 
 	@Override
-	public void createSlotForSession(Date start, Date end, String courseName,
+	public void createSlotForSession(Date start, Date end,
 			String sessionName) {
-		// TODO Auto-generated method stub
-		
+		Session s = getSession(sessionName);
+		s.setStart(start);
+		s.setEnd(end);		
 	}
 
 	@Override
 	public void assignRoomToSlot(String roomName, String sessionName) {
-		// TODO Auto-generated method stub
-		
+		Session s = getSession(sessionName);
+		s.setRoom(new Room(roomName));		
 	}
 
 	@Override
 	public void specifySessionTimeframe(String sessionName,
 			SessionEnum timeframe) {
-		// TODO Auto-generated method stub
-		
+		Session s = getSession(sessionName);
+		s.setTimeframe(timeframe);
 	}
 
 

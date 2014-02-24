@@ -110,14 +110,13 @@ public class User implements AdminInterface, LecturerInterface,
 	}
 
 	@Override
-	public void createSlotForSession(Date start, Date end,
-			String courseName, String sessionName)
+	public void createSlotForSession(Date start, Date end, String sessionName)
 			throws IllegalOperationException {
 		if (!isAdmin)
 			throw new IllegalOperationException(
 					"Permission denined. The current user does not have the permissions to execute this operation");
 		else {
-			data.createSlotForSession(start, end, courseName, sessionName);
+			data.createSlotForSession(start, end, sessionName);
 			
 		}
 	}

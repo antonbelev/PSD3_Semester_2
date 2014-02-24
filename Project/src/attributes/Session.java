@@ -3,6 +3,8 @@ package attributes;
 import java.util.Date;
 import java.util.HashMap;
 
+import enums.SessionEnum;
+
 public class Session {
 	
 	private String sessionName;
@@ -11,9 +13,10 @@ public class Session {
 	private HashMap<String, Student> students = new HashMap<String, Student>();
 	private Room room;	
 	private boolean isCompulsory;
+	private SessionEnum timeframe;
 	
 	public Session(String sessionName, Date start, Date end,
-			HashMap<String, Student> students, Room room, boolean isCompulsory) {
+			HashMap<String, Student> students, Room room, boolean isCompulsory, SessionEnum timeframe) {
 		super();
 		this.sessionName = sessionName;
 		this.start = start;
@@ -21,8 +24,17 @@ public class Session {
 		this.students = students;
 		this.room = room;
 		this.isCompulsory = isCompulsory;
+		this.timeframe = timeframe;
 	}
 	
+	public SessionEnum getTimeframe() {
+		return timeframe;
+	}
+
+	public void setTimeframe(SessionEnum timeframe) {
+		this.timeframe = timeframe;
+	}
+
 	@Override
 	public String toString(){
 		return "Session name: " + sessionName + " start: " + start +

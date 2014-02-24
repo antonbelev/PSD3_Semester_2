@@ -7,11 +7,10 @@ public class Room {
 	
 	private String roomName;
 	private boolean isAvailable;
-	private HashMap<String, Session> sessions = new HashMap<String, Session>();
+
 	
-	public Room(String roomName, HashMap<String, Session> sessions) {
+	public Room(String roomName) {
 		this.roomName = roomName;
-		this.sessions = sessions;
 		this.isAvailable = true;
 	}
 	
@@ -27,14 +26,6 @@ public class Room {
 
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
-	}
-
-	public HashMap<String, Session> getSessions() {
-		return sessions;
-	}
-
-	public void setSessions(HashMap<String, Session> sessions) {
-		this.sessions = sessions;
 	}
 
 	public boolean isAvailable() {

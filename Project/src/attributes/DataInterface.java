@@ -32,8 +32,7 @@ public interface DataInterface {
 	
 	public String checkCoursesCompousorySessions(String studentID, String courseName);
 	
-	public void createSlotForSession(Date start, Date end,
-			String courseName, String sessionName);
+	public void createSlotForSession(Date start, Date end, String sessionName);
 	
 	public void assignRoomToSlot(String roomName, String sessionName);
 	
