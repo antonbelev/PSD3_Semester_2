@@ -30,12 +30,7 @@ User story 14
 
     Acceptance conditions - SeeSessionSlotsInformationTest initializes some initial data. Then if the returned result by the seeSessionSlotsInformation method matches the expected string the JUnit test case should pass
 
+User story 23
 
-
-
-
-
-
-
-
+    Acceptance conditions - CreateSlotForSessionTest initializes a session for the testing purposes. Then the method createSlotForSession should be able to set the start and the end dates for this session. If after the execution of this method the new dates appear for this session the the JUnit test case should pass.
 
