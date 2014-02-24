@@ -34,7 +34,7 @@ public class AddSessionToCourseTest {
 	}
 	
 	@Test
-	public void importCourseFromMyCampusTest() {
+	public void addSessionToCourse() {
 		try {
 			//import some data from My Campus in order to have PSD3 already imported
 			lecturer.importCourseFromMyCampus(myCampusService);

@@ -35,7 +35,7 @@ public class SpecifySessionTimeframeTest {
 	}
 	
 	@Test
-	public void importCourseFromMyCampusTest() {
+	public void specifySessionTimeframe() {
 		try {
 			//import some data from My Campus in order to have Lab1 already imported
 			lecturer.importCourseFromMyCampus(myCampusService);
