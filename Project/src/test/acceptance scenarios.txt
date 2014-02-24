@@ -14,3 +14,25 @@ User story 2
 User story 4
 
     Acceptance conditions - if the invocation of the method specifySessionTimeframe successfully changes the time frame of the session specified - then the JUnit test case pass successfully.
+
+User story 8
+    
+    Acceptance conditions - if the invocation of the method assignRoomToSlot with parameters  roomName and sessionName, successfully assign room to the already existing session, then the JUnit test case should pass.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

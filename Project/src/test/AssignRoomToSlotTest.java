@@ -9,7 +9,6 @@ import users.AdminInterface;
 import users.IllegalOperationException;
 import users.User;
 import attributes.Data;
-import attributes.MyCampusService;
 import attributes.Session;
 
 public class AssignRoomToSlotTest {
@@ -21,7 +20,6 @@ public class AssignRoomToSlotTest {
 	 */
 	
 	private AdminInterface admin;
-	private MyCampusService myCampusService;
 	private Data data;
 	
 	@Before
@@ -29,7 +27,6 @@ public class AssignRoomToSlotTest {
 		//Given a
 		data = Data.getSingleton();
 		admin = new User(true, false, false, false, data);
-		myCampusService = myCampusService.getSingleton();
 	}
 	
 	@Test
