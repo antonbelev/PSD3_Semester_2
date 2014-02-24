@@ -10,3 +10,7 @@ User story 1
 
 User story 2
     Acceptance conditions - if the invocation of the method addSessionToCourse assosiated with the lecturer instance successfully adds the new session to an existing course then the JUnit test case is passed.
+
+User story 4
+
+    Acceptance conditions - if the invocation of the method specifySessionTimeframe successfully changes the time frame of the session specified - then the JUnit test case pass successfully.

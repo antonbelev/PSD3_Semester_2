@@ -2,22 +2,16 @@ package test;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
-import java.util.Map.Entry;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import enums.SessionEnum;
 import users.IllegalOperationException;
 import users.LecturerInterface;
-import users.StudentInterface;
 import users.User;
-import attributes.Course;
 import attributes.Data;
 import attributes.MyCampusService;
 import attributes.Session;
-import attributes.Student;
+import enums.SessionEnum;
 
 public class AddSessionToCourseTest {
 	

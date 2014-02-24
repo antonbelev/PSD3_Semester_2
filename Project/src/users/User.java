@@ -3,7 +3,6 @@ package users;
 import java.util.Date;
 
 import attributes.Data;
-import attributes.DataInterface;
 import attributes.MyCampusService;
 import enums.SessionEnum;
 
