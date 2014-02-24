@@ -7,3 +7,6 @@ User story 1
     attributes.Data.java is holding hash maps of courses, students and sessions available. To test if the lecturer is importing successfully courses we need to invoke the method public void importCourseFromMyCampus(MyCampusService myCampusService). 
 
     Acceptance conditions - if the invocation of this method has populated the courses, students and sessions with the same data as the dummy data provided by the MyCampusService then the method should pass the JUnit test case.
+
+User story 2
+    Acceptance conditions - if the invocation of the method addSessionToCourse assosiated with the lecturer instance successfully adds the new session to an existing course then the JUnit test case is passed.
