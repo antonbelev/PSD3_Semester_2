@@ -125,19 +125,19 @@ public class Data implements DataInterface{
 	}
 
 	@Override
-	public Set<Course> getCoursesForStudent(String studentId) {
-		return (Set<Course>) getStudent(studentId).getCourses();
+	public HashMap<String, Course> getCoursesForStudent(String studentId) {
+		return getStudent(studentId).getCourses();
 	}
 
 	@Override
 	public String checkCoursesCompousorySessions(String studentID,
 			String courseName) {
-		Set<Course> courseSet = getCoursesForStudent(studentID);
+		HashMap<String, Course> courseSet = getCoursesForStudent(studentID);
 		Course course = null;
-		for (Course c : courseSet){
-			if (c.getCourseName().equals(courseName))
+		for (Entry<String, Course> c : courseSet.entrySet()){
+			if (c.getValue().getCourseName().equals(courseName))
 			{
-				course = c;
+				course = c.getValue();
 				break;
 			}
 		}

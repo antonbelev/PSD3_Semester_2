@@ -1,6 +1,7 @@
 package attributes;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Set;
 
 import enums.SessionEnum;
@@ -22,7 +23,7 @@ public interface DataInterface {
 	
 	public Set<Student> getStudentsForCourse(String courseName);
 	
-	public Set<Course> getCoursesForStudent(String studentId);
+	public HashMap<String, Course> getCoursesForStudent(String studentId);
 	
 	public Set<Session> getSessionsForCourse(String courseName);
 	

@@ -38,7 +38,7 @@ public class MyCampusService {
 		studentCourses.put("PSD3", c1);
 		Student s1 = new Student("1", "Pancho Durvodelski", studentCourses);
 		HashMap<String, Student> sessionStudents = new HashMap<String, Student>();	
-		sessionStudents.put(s1.getName(), s1);
+		sessionStudents.put(s1.getId(), s1);
 		
 		@SuppressWarnings("deprecation")
 		Session sess1 = new Session("Lab1", new Date(2013, 2, 24), new Date(2013, 3, 31), sessionStudents, r1, true, SessionEnum.WEEKLY);

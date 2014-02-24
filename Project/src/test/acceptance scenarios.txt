@@ -2,7 +2,6 @@ Better formatted file can be found here:
 
 https://docs.google.com/document/d/1u4LDNpDM24pM7r9GAZL9lBWTLH-snn0CjxcfaJlZ43k/edit
 
-
 User story 1
     attributes.Data.java is holding hash maps of courses, students and sessions available. To test if the lecturer is importing successfully courses we need to invoke the method public void importCourseFromMyCampus(MyCampusService myCampusService). 
 
@@ -23,10 +22,9 @@ User story 11
 
     Acceptance conditions - if the method bookCourseSessionSlots successfully assigns an existing student to an existing session then the new student should appear in the students hashmap inside this existing session. If that is the case the JUnit test case should pass.
 
+User story 12
 
-
-
-
+    Acceptance conditions - CheckCoursesCompousorySessionsTest initializes some data in order to check later if the invocation of the method checkCoursesCompousorySessions will return the expected string of compulsory sessions.
 
 
 
