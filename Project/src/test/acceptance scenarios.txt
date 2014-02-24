@@ -26,7 +26,9 @@ User story 12
 
     Acceptance conditions - CheckCoursesCompousorySessionsTest initializes some data in order to check later if the invocation of the method checkCoursesCompousorySessions will return the expected string of compulsory sessions.
 
+User story 14
 
+    Acceptance conditions - SeeSessionSlotsInformationTest initializes some initial data. Then if the returned result by the seeSessionSlotsInformation method matches the expected string the JUnit test case should pass
 
 
 
