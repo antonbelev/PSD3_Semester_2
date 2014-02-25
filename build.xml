@@ -54,7 +54,7 @@
 			srcdir="Project/src"
 			destdir="bin"
 			debuglevel="lines,vars,source"
-			classpathref="project.classpath"
+			classpathref="PSD3_Semester_2.classpath"
 		/>
 	
 	</target>
