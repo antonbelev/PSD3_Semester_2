@@ -32,7 +32,7 @@ public class SeeSessionSlotsInformationTest {
 	}
 	
 	@Test
-	public void specifySessionTimeframe() {
+	public void seeSessionSlotsInformation() {
 		try {
 			//import some data from My Campus in order to have Lab1 already imported
 			lecturer.importCourseFromMyCampus(myCampusService);

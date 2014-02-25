@@ -5,11 +5,13 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
     <project basedir="." default="build" name="PSD3_Semester_2" xmlns:ivy="antlib:org.apache.ivy.ant">
+
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../../../../usr/local/eclipse"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
+    <property name='lib.dir' value='lib' />
     <path id="PSD3_Semester_2.classpath">
         <pathelement location="bin"/>
         <pathelement location="lib/org.osgi.core-4.3.0.jar"/>
@@ -18,65 +20,123 @@
         <pathelement location="lib/felix-framework-4.2.1/bundle/org.apache.felix.gogo.command-0.12.0.jar"/>
         <pathelement location="lib/felix-framework-4.2.1/bundle/org.apache.felix.gogo.runtime-0.10.0.jar"/>
         <pathelement location="lib/felix-framework-4.2.1/bundle/org.apache.felix.gogo.shell-0.10.0.jar"/>
-<!--        <pathelement location="lib/junit-4.11.jar"/>-->
+	<pathelement location="lib/junit-4.11.jar"/>
         <fileset dir="lib" />
+        <fileset dir="${lib.dir}" includes="**/*.jar" />
     </path>
-    <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="Project/src">
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
     <target
-		name="clean"
-		description="Deletes all intermediate files."
+		name="init"
+		description="Initalises the distribution in preparation for compilation of code and documentation."
 	>
 		
-		<delete dir="bin" />
-	
-    </target>
-    <target
-		name="cleanall"
-		description="Deletes all files not included in the distribution archive."
-		depends="clean"
-	>
+		<mkdir dir="bin"/>
 		
-		<delete dir="lib" />
-		<delete dir="." includes="*.jar"/>
-		<ivy:cleancache/>
+	</target>
+
 	
-    </target>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects"/>
-    <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
-            <src path="Project/src"/>
-            <classpath refid="PSD3_Semester_2.classpath"/>
-        </javac>
-    </target>
-    <target
+	<target
 		name="resolve"
 		description="Retrieves necessary dependencies for this project."
 	>
 		
 		<ivy:retrieve />
 		
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
-        <copy todir="${ant.library.dir}">
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </copy>
-        <unzip dest="${ant.library.dir}">
-            <patternset includes="jdtCompilerAdapter.jar"/>
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </unzip>
-    </target>
-    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
-        <antcall target="build"/>
-    </target>
+	</target>
+	
+	
+	<target
+		name="compile"
+		depends="init,resolve"
+		description="Compiles all java class files."
+	>
+
+		<javac
+			srcdir="Project/src"
+			destdir="bin"
+			debuglevel="lines,vars,source"
+			classpathref="project.classpath"
+		/>
+	
+	</target>
+	
+	
+<!--	<target
+		name="run"
+		depends="compile"
+		description="Invokes the application from the default entry point."
+	>
+		
+		<java
+			classname="uk.ac.glasgow.senotes.ant.HelloWorldProject"
+			fork="yes"
+			classpathref="project.classpath"
+		/>
+		
+	</target>-->
+		
+	
+	<target
+		name="test"
+		description="Invokes the project's suite of JUnit test cases"
+		depends="compile">
+		
+		<junit			
+			printsummary="yes"
+		>
+			<classpath refid="PSD3_Semester_2.classpath"/>
+			<formatter type="plain" usefile="false" />
+			<test name="test.AddSessionToCourseTest"/>
+			<test name="test.AssignRoomToSlotTest"/>
+			<test name="test.BookCourseSessionSlotsTest"/>
+			<test name="test.CheckCoursesCompousorySessionsTest"/>
+			<test name="test.CreateSlotForSessionTest"/>
+			<test name="test.ImportCourseFromMyCampusTest"/>
+			<test name="test.SeeSessionSlotsInformationTest"/>
+			<test name="test.SpecifySessionTimeframeTest"/>
+		</junit>
+	
+	</target>
+
+	<target
+		    name="clean"
+		    description="Deletes all intermediate files."
+	    >
+		    
+		    <delete dir="bin" />
+	    
+	</target>
+	<target
+		    name="cleanall"
+		    description="Deletes all files not included in the distribution archive."
+		    depends="clean"
+	    >
+		    
+		    <delete dir="lib" />
+		    <delete dir="." includes="*.jar"/>
+		    <ivy:cleancache/>
+	    
+	</target>
+	<target depends="build-subprojects,build-project" name="build"/>
+	<target name="build-subprojects"/>
+	<target depends="init" name="build-project">
+	    <echo message="${ant.project.name}: ${ant.file}"/>
+	    <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+		<src path="Project/src"/>
+		<classpath refid="PSD3_Semester_2.classpath"/>
+	    </javac>
+	</target>
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+	    <copy todir="${ant.library.dir}">
+		<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+	    </copy>
+	    <unzip dest="${ant.library.dir}">
+		<patternset includes="jdtCompilerAdapter.jar"/>
+		<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+	    </unzip>
+	</target>
+	<target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+	    <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+	    <antcall target="build"/>
+	</target>
 </project>
