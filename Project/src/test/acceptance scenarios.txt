@@ -34,3 +34,38 @@ User story 23
 
     Acceptance conditions - CreateSlotForSessionTest initializes a session for the testing purposes. Then the method createSlotForSession should be able to set the start and the end dates for this session. If after the execution of this method the new dates appear for this session the the JUnit test case should pass.
 
+
+Security/0
+
+	The system shall authenticate users via the MyCampus single sign-on service.
+	Acceptance conditions - UserLoginTest 
+
+Security/1
+
+	The system shall distinguish between lecturers, administrators, tutors and student roles.
+	Acceptance conditions -
+
+interoperability/0
+
+	The system shall be implemented as one or more OSGi bundles.
+
+performance/0
+
+	The system shall support at least 100 courses.
+
+performance/1
+
+	The system shall support at least 10 different session types per course.
+
+performance/2
+
+	The system shall support at least 1000 different users.
+
+performance/3
+
+	The system shall support at least 20 different timetable slots per session.
+
+performance/4
+
+	The system shall support at least 100 different concurrently active users
+
