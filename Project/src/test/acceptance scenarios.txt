@@ -53,12 +53,16 @@ performance/0
 
 	The system shall support at least 100 courses.
 	
-	This will be tested with creating 100 courses and then checking if the total number of courses existing are actually 100.
+	This will be tested with creating 100 courses and then checking if the total number of courses existing are actually or over 100 (in case more courses have already been added before this test case).
 	The JUnit test is called CourseSupportTest.
 
 performance/1
 
 	The system shall support at least 10 different session types per course.
+	
+	This will be tested by adding 10 or more sessions to a given course.
+	If the size of the courses added is taking into account the new sessions added the 
+	JUnit test case should pass. You can see the JUnit class here - SessionTypesTest.
 
 performance/2
 
