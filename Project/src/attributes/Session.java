@@ -71,7 +71,7 @@ public class Session {
 		String information = toString();
 		
 		for (Student s : getStudents().values()){
-			students += students + "\n";
+			students += s + "\n";
 		}
 		
 		return information + students;
