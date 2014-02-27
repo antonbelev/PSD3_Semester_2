@@ -65,7 +65,7 @@ public class Data implements DataInterface{
 	@Override
 	public Session getSession(String sessionName) {
 		if (!sessions.containsKey(sessionName))
-			sessions.put(sessionName, new Session(sessionName, null, null, null, null, true, SessionEnum.FORTNIGHTLY, ""));
+			sessions.put(sessionName, new Session(sessionName, new Date(2013, 2, 24), new Date(2013, 3, 31), new HashMap<String, Student>(), new Room("bo720"), true, SessionEnum.WEEKLY, "lab"));
 			
 		return sessions.get(sessionName);
 	}
