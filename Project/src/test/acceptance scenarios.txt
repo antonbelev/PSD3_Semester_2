@@ -81,4 +81,9 @@ performance/3
 performance/4
 
 	The system shall support at least 100 different concurrently active users
+	
+	For this non-functional requirement we have created 100+ threads which are executing some methods for the current user.
+	To check that the system can handle that number of threads we check if the active threads is greater than 100.
+	
+	The JUnit test case can be found here ConcurrentActiveUsersTest. 
 

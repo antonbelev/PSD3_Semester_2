@@ -64,6 +64,9 @@ public class Data implements DataInterface{
 
 	@Override
 	public Session getSession(String sessionName) {
+		if (!sessions.containsKey(sessionName))
+			sessions.put(sessionName, new Session(sessionName, null, null, null, null, true, SessionEnum.FORTNIGHTLY, ""));
+			
 		return sessions.get(sessionName);
 	}
 
