@@ -34,7 +34,6 @@ User story 23
 
     Acceptance conditions - CreateSlotForSessionTest initializes a session for the testing purposes. Then the method createSlotForSession should be able to set the start and the end dates for this session. If after the execution of this method the new dates appear for this session the the JUnit test case should pass.
 
-
 Security/0
 
 	The system shall authenticate users via the MyCampus single sign-on service.
@@ -47,7 +46,11 @@ Security/0
 Security/1
 
 	The system shall distinguish between lecturers, administrators, tutors and student roles.
-	Acceptance conditions -
+	
+	The test for this non-functional requirement can be found here UserPermissionsTest. we are creating different
+	instances of user and we are trying to execute operations that are now allowed for that users.
+	
+	Exception is expected to be thrown and if that is the case the JUnit test case should pass. 
 
 interoperability/0
 

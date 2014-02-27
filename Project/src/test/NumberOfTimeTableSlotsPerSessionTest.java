@@ -3,16 +3,13 @@ package test;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
-import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import users.IllegalOperationException;
-import attributes.Course;
 import attributes.Data;
 import attributes.Session;
-import attributes.Student;
 import attributes.TimeTableSlot;
 import enums.SessionEnum;
 
@@ -29,6 +26,7 @@ private Data data;
 		data = Data.getSingleton();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void numberOfTimeTableSlotsPerSessionTest() throws IllegalOperationException {
 		//Create one course and add 10 different sessions for that course.

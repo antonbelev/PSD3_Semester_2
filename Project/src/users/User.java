@@ -29,16 +29,7 @@ public class User implements AdminInterface, LecturerInterface,
 
 	public Data getData() {
 		return data;
-	}
-	
-	@Override /*new*/
-	public void importUser(String username, String password) throws IllegalOperationException {
-		if(!isLecturer && !isStudent && !isTutor && !isAdmin){
-			throw new IllegalOperationException(
-					"Permission denined. The current user does not exist in the system.");
-		}
-	}
-	
+	}	
 
 	@Override
 	public void importCourseFromMyCampus(MyCampusService myCampusService)

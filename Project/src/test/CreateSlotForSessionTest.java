@@ -32,6 +32,7 @@ public class CreateSlotForSessionTest {
 		admin = new User(true, false, false, false, data);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void createSlotForSession() {
 		try {

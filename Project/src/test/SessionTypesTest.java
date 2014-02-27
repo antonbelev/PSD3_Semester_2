@@ -28,6 +28,7 @@ public class SessionTypesTest {
 		data = Data.getSingleton();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void sessionTypesTest() throws IllegalOperationException {
 		//Create one course and add 10 different sessions for that course.
@@ -42,7 +43,7 @@ public class SessionTypesTest {
 		}	
 		
 		assertTrue(data.getCourse(c1.getCourseName()).getSessions().size() >= 10);
-		assertTrue(data.getSessions().size() >= 10); 
+		assertTrue(data.getSessions().size() >= 10);
 		
 	}
 
