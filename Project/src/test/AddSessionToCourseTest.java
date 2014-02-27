@@ -30,7 +30,7 @@ public class AddSessionToCourseTest {
 		//Given a
 		data = Data.getSingleton();
 		lecturer = new User(false, false, true, false, data);
-		myCampusService = myCampusService.getSingleton();
+		myCampusService = MyCampusService.getSingleton();
 	}
 	
 	@Test

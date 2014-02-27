@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Set;
 
 import enums.SessionEnum;
-import users.IllegalOperationException;
 
 public interface DataInterface {
 

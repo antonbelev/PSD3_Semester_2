@@ -1,5 +1,6 @@
 package attributes;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -15,6 +16,8 @@ public class Session {
 	private boolean isCompulsory;
 	private SessionEnum timeframe;
 	private String type;
+	private ArrayList<TimeTableSlot> timeTableSlots;
+	
 	
 	public Session(String sessionName, Date start, Date end,
 			HashMap<String, Student> students, Room room, boolean isCompulsory,
@@ -28,6 +31,23 @@ public class Session {
 		this.isCompulsory = isCompulsory;
 		this.timeframe = timeframe;
 		this.type = type;
+		this.timeTableSlots = new ArrayList<TimeTableSlot>();
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public ArrayList<TimeTableSlot> getTimeTableSlots() {
+		return timeTableSlots;
+	}
+
+	public void setTimeTableSlots(ArrayList<TimeTableSlot> timeTableSlots) {
+		this.timeTableSlots = timeTableSlots;
 	}
 
 	public SessionEnum getTimeframe() {

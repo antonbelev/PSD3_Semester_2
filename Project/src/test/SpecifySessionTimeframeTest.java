@@ -10,7 +10,6 @@ import users.LecturerInterface;
 import users.User;
 import attributes.Data;
 import attributes.MyCampusService;
-import attributes.Session;
 import enums.SessionEnum;
 
 public class SpecifySessionTimeframeTest {
@@ -31,7 +30,7 @@ public class SpecifySessionTimeframeTest {
 		//Given a
 		data = Data.getSingleton();
 		lecturer = new User(false, false, true, false, data);
-		myCampusService = myCampusService.getSingleton();
+		myCampusService = MyCampusService.getSingleton();
 	}
 	
 	@Test

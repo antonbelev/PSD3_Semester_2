@@ -20,7 +20,7 @@ public class MyCampusService {
 	}
 
 	public void setCourses(HashMap<String, Course> courses) {
-		this.courses = courses;
+		MyCampusService.courses = courses;
 	}
 	
 	public static MyCampusService getSingleton() {

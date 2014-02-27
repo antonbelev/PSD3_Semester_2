@@ -1,8 +1,5 @@
 package attributes;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
 public class Room {
 	
 	private String roomName;
