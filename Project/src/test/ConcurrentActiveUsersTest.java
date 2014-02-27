@@ -42,7 +42,6 @@ public class ConcurrentActiveUsersTest {
 				try {
 					lecturer.importCourseFromMyCampus(myCampusService);
 				} catch (IllegalOperationException e) {
-					e.printStackTrace();
 				}
 				String sessionName = "Lab1";
 				synchronized (data) {
@@ -51,14 +50,11 @@ public class ConcurrentActiveUsersTest {
 				try {
 					String result = lecturer.seeSessionSlotsInformation(sessionName);
 				} catch (IllegalOperationException e) {
-					e.printStackTrace();
 				}
 				
 				try {
 					Thread.currentThread().sleep(1000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 				
 			}

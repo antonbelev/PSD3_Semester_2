@@ -65,7 +65,8 @@ public class Session {
 		
 	}
 	
-	public String sessionInformation() {
+	
+	public synchronized String sessionInformation() {
 		String students = "Students enrolled: \n";
 		String information = toString();
 		
