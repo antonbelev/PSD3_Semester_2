@@ -67,6 +67,8 @@ performance/1
 performance/2
 
 	The system shall support at least 1000 different users.
+	
+	For this non-functional requirement we are creating 1000 users. The JUnit test case can be found here - NumberOfUsersTest.
 
 performance/3
 
