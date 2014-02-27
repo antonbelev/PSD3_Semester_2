@@ -7,5 +7,8 @@ public interface StudentInterface {
 	
 	public String checkCoursesCompousorySessions(String studentID, String courseName)
 		throws IllegalOperationException;
+	
+	public void importUser(String string, String string2)
+			throws IllegalOperationException;
 
 }

@@ -12,6 +12,7 @@ public class User implements AdminInterface, LecturerInterface,
 	private boolean isAdmin;
 	private boolean isStudent;
 	private boolean isLecturer;
+	private boolean isTutor;
 	private Data data;
 
 	public User(boolean isAdmin, boolean isStudent, boolean isLecturer,
@@ -29,6 +30,15 @@ public class User implements AdminInterface, LecturerInterface,
 	public Data getData() {
 		return data;
 	}
+	
+	@Override /*new*/
+	public void importUser(String username, String password) throws IllegalOperationException {
+		if(!isLecturer && !isStudent && !isTutor && !isAdmin){
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not exist in the system.");
+		}
+	}
+	
 
 	@Override
 	public void importCourseFromMyCampus(MyCampusService myCampusService)

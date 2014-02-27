@@ -17,4 +17,7 @@ public interface LecturerInterface {
 	public String seeSessionSlotsInformation(String sessionName)
 			throws IllegalOperationException;
 
+	public void importUser(String string, String string2)
+			throws IllegalOperationException;
+	
 }

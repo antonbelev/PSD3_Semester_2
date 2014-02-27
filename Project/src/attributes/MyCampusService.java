@@ -8,11 +8,13 @@ import enums.SessionEnum;
 public class MyCampusService {
 	
 	private static HashMap<String, Course> courses;
+	private static HashMap<String, String> users;
 	
 	private static MyCampusService myCampuseInstance;
 
 	public MyCampusService() {
 		courses = new HashMap<String, Course>();
+		users = new HashMap<String, String>();
 	}
 
 	public HashMap<String, Course> getCourses() {
@@ -27,6 +29,7 @@ public class MyCampusService {
 		if (myCampuseInstance == null) {
 			myCampuseInstance = new MyCampusService();
 			importMyCampusData();
+			importUsers();
 		}
 		return myCampuseInstance;
 	}
@@ -48,11 +51,27 @@ public class MyCampusService {
 		
 		courses.put(c1.getCourseName(), c1);		
 	}
+	
+	public static HashMap<String, String> getUsers() {
+		return users;
+	}
+
+	public static void setUsers(HashMap<String, String> users) {
+		MyCampusService.users = users;
+	}
+
+	private static void importUsers() {
+		String userName1 = "SilviyaSoti";
+		String password1 = "NameOfTheCat";
+		users.put(userName1, password1);
+	}
 
 	@Override
 	public String toString() {
 		return "MyCampusService [courses=" + courses + "]";
 	}
+	
+	
 	
 	
 }
