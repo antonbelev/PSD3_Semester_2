@@ -19,10 +19,7 @@ public class AuthenticationTest {
 	/**
 	 * The system shall authenticate users via the MyCampus single sign-on service.
 	 */
-	
-	private LecturerInterface lecturer;
-	private StudentInterface student;
-	private TutorInterface tutor;
+
 	private AdminInterface admin;
 	private MyCampusService myCampusService;
 	private Data data;
@@ -31,23 +28,13 @@ public class AuthenticationTest {
 	public void setUp() throws Exception {
 		//Given a
 		data = Data.getSingleton();
-		lecturer = new User(false, false, true, false, data);
+		admin = new User(true, false, false, false, data);
 		myCampusService = myCampusService.getSingleton();
 	}
 
 	@Test
 	public void test() {
-		try {
-			//import some data from My Campus in order to have PSD3 already imported
-			lecturer.importUser("SilviyaSoti", "NameOfTheCat");		
-			
-			
-			assertTrue(myCampusService.getUsers().containsKey("SilviyaSoti"));
-			
-		
-		} catch (IllegalOperationException e) {
-			e.printStackTrace();
-		}	
+		assertTrue(admin.authenticate(myCampusService, "admin", "admin"));
 	}
 }
 

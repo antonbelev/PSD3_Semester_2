@@ -63,8 +63,7 @@ public class Session {
 		return "Session name: " + sessionName + " type: " + type + " start: " + start +
 				 " end: " + end + " room: " + room + " isCompulsory: " + isCompulsory;
 		
-	}
-	
+	}	
 	
 	public synchronized String sessionInformation() {
 		String students = "Students enrolled: \n";

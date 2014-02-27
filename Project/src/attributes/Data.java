@@ -176,6 +176,13 @@ public class Data implements DataInterface{
 		s.setTimeframe(timeframe);
 	}
 
+	public boolean authenticate(MyCampusService myCampusService,
+			String username, String password) {		
+		if (!myCampusService.getUsers().containsKey(username))
+			return false;		
+		return myCampusService.getUsers().get(username).equals(password);
+	}
+
 
 	
 }

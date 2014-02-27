@@ -2,7 +2,7 @@ package users;
 
 import java.util.Date;
 
-public interface AdminInterface {
+public interface AdminInterface extends AuthenticateInterface {
 	
 	public void assignRoomToSlot(String roomName, String sessionName)
 			throws IllegalOperationException;

@@ -1,6 +1,6 @@
 package users;
 
-public interface StudentInterface {
+public interface StudentInterface extends AuthenticateInterface {
 	
 	public void bookCourseSessionSlots(String studentID, String sessionName)
 		throws IllegalOperationException;

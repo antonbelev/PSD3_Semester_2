@@ -40,13 +40,10 @@ Security/0
 	The system shall authenticate users via the MyCampus single sign-on service.
 	Acceptance conditions - UserLoginTest 
 	
-
-	The test is: AuthenticationTest;
-	Added methods in User: importUser(String username, String password);
-	Added methods in AdminInterface, StudentInterface, TutorInterface, LecturerInterface: importUser(String username, String password)
-	Added in MyCampusService: importUsers();
-							  private static HashMap<String, String> users; (and also getter and setters);
-
+	You can find the JUnit test in AuthenticationTest.
+	
+	Each user has authenticate method. The test will authenticate admin to and the provided password and username will be checked in the mocked MycampusService class.
+	
 Security/1
 
 	The system shall distinguish between lecturers, administrators, tutors and student roles.

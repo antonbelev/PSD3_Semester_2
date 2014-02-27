@@ -61,17 +61,18 @@ public class MyCampusService {
 	}
 
 	private static void importUsers() {
-		String userName1 = "SilviyaSoti";
-		String password1 = "NameOfTheCat";
+		String userName1 = "por";
+		String password1 = "po123";
+		
+		String userName2 = "admin";
+		String password2 = "admin";
 		users.put(userName1, password1);
+		users.put(userName2, password2);
 	}
 
 	@Override
 	public String toString() {
 		return "MyCampusService [courses=" + courses + "]";
 	}
-	
-	
-	
 	
 }

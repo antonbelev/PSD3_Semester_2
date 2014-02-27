@@ -3,7 +3,7 @@ package users;
 import enums.SessionEnum;
 import attributes.MyCampusService;
 
-public interface LecturerInterface {
+public interface LecturerInterface extends AuthenticateInterface {
 	
 	public void importCourseFromMyCampus(MyCampusService myCampusService) 
 			throws IllegalOperationException;						
@@ -15,9 +15,6 @@ public interface LecturerInterface {
 			throws IllegalOperationException;
 	
 	public String seeSessionSlotsInformation(String sessionName)
-			throws IllegalOperationException;
-
-	public void importUser(String string, String string2)
 			throws IllegalOperationException;
 	
 }

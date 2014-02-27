@@ -131,4 +131,11 @@ public class User implements AdminInterface, LecturerInterface,
 		}
 	}
 
+	@Override
+	public boolean authenticate(MyCampusService myCampusService,
+			String username, String password) {
+		
+		return data.authenticate(myCampusService, username, password);		
+	}
+
 }
