@@ -85,7 +85,19 @@
 		>
 			<classpath refid="PSD3_Semester_2.classpath"/>
 			<formatter type="plain" usefile="false" />
-			<test name="test.*Test"/>
+			<test name="test.AuthenticationTest"/>
+			<test name="test.AssignRoomToSlotTest"/>
+			<test name="test.BookCourseSessionSlotsTest"/>
+			<test name="test.ConcurrentActiveUsersTest"/>
+			<test name="test.CheckCoursesCompousorySessionsTest"/>
+			<test name="test.NumberOfUsersTest"/>
+			<test name="test.NumberOfTimeTableSlotsPerSessionTest"/>
+			<test name="test.CreateSlotForSessionTest"/>
+			<test name="test.ImportCourseFromMyCampusTest"/>
+			<test name="test.SeeSessionSlotsInformationTest"/>
+			<test name="test.SessionTypesTest"/>
+			<test name="test.SpecifySessionTimeframeTest"/>
+			<test name="test.UserPermissionsTest"/>
 		</junit>
 	
 	</target>
