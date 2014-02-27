@@ -37,7 +37,7 @@ public class CreateSlotForSessionTest {
 		try {
 			String sessionName = "Lab1";
 	
-			Session s = new Session(sessionName, null, null, null, null, false, null);
+			Session s = new Session(sessionName, null, null, null, null, false, null, "lab");
 			data.getSessions().put(s.getSessionName(), s);
 			Date start = new Date(2013, 2, 24);
 			Date end = new Date(2013, 3, 31);

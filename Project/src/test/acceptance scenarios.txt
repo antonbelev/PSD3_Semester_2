@@ -52,6 +52,9 @@ interoperability/0
 performance/0
 
 	The system shall support at least 100 courses.
+	
+	This will be tested with creating 100 courses and then checking if the total number of courses existing are actually 100.
+	The JUnit test is called CourseSupportTest.
 
 performance/1
 

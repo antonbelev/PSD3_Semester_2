@@ -38,7 +38,7 @@ public class AddSessionToCourseTest {
 		try {
 			//import some data from My Campus in order to have PSD3 already imported
 			lecturer.importCourseFromMyCampus(myCampusService);
-			Session s = new Session("Lab2", null, null, null, null, true, SessionEnum.WEEKLY);
+			Session s = new Session("Lab2", null, null, null, null, true, SessionEnum.WEEKLY, "lab");
 			data.getSessions().put(s.getSessionName(), s);
 			
 			lecturer.addSessionToCourse("Lab2", "PSD3");			

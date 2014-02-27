@@ -41,7 +41,7 @@ public class MyCampusService {
 		sessionStudents.put(s1.getId(), s1);
 		
 		@SuppressWarnings("deprecation")
-		Session sess1 = new Session("Lab1", new Date(2013, 2, 24), new Date(2013, 3, 31), sessionStudents, r1, true, SessionEnum.WEEKLY);
+		Session sess1 = new Session("Lab1", new Date(2013, 2, 24), new Date(2013, 3, 31), sessionStudents, r1, true, SessionEnum.WEEKLY, "lab");
 		
 		c1.getSessions().put(sess1.getSessionName(), sess1);
 		c1.getStudentsEnrolled().put(s1.getName(), s1);

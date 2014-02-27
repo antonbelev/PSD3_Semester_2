@@ -14,9 +14,11 @@ public class Session {
 	private Room room;	
 	private boolean isCompulsory;
 	private SessionEnum timeframe;
+	private String type;
 	
 	public Session(String sessionName, Date start, Date end,
-			HashMap<String, Student> students, Room room, boolean isCompulsory, SessionEnum timeframe) {
+			HashMap<String, Student> students, Room room, boolean isCompulsory,
+			SessionEnum timeframe, String type) {
 		super();
 		this.sessionName = sessionName;
 		this.start = start;
@@ -25,8 +27,9 @@ public class Session {
 		this.room = room;
 		this.isCompulsory = isCompulsory;
 		this.timeframe = timeframe;
+		this.type = type;
 	}
-	
+
 	public SessionEnum getTimeframe() {
 		return timeframe;
 	}
@@ -37,7 +40,7 @@ public class Session {
 
 	@Override
 	public String toString(){
-		return "Session name: " + sessionName + " start: " + start +
+		return "Session name: " + sessionName + " type: " + type + " start: " + start +
 				 " end: " + end + " room: " + room + " isCompulsory: " + isCompulsory;
 		
 	}

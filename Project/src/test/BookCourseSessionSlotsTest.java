@@ -38,7 +38,7 @@ public class BookCourseSessionSlotsTest {
 		try {
 			String sessionName = "Lab2";
 			//Put dummy session and try to assign student to it
-			Session s = new Session(sessionName, null, null, new HashMap<String, Student>(), null, false, null);
+			Session s = new Session(sessionName, null, null, new HashMap<String, Student>(), null, false, null, "lab");
 			Student stud = new Student("1", "Anton Belev", null);
 			//add the student to the existing students
 			data.getStudents().put(stud.getId(), stud);

@@ -35,7 +35,7 @@ public class AssignRoomToSlotTest {
 			String sessionName = "Lab1";
 			String roomName = "bo720";
 			//Put dummy session and try to assign room to this session
-			Session s = new Session(sessionName, null, null, null, null, false, null);
+			Session s = new Session(sessionName, null, null, null, null, false, null, "lab");
 			data.getSessions().put(s.getSessionName(), s);
 			
 			admin.assignRoomToSlot(roomName, sessionName);
