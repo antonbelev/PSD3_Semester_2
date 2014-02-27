@@ -39,6 +39,7 @@ public class ImportCourseFromMyCampusTest {
 	@Test
 	public void importCourseFromMyCampusTest() {
 		try {
+			
 			lecturer.importCourseFromMyCampus(myCampusService);
 			
 			for (Entry<String, Course> course : myCampusService.getCourses().entrySet()){

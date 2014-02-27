@@ -12,7 +12,6 @@ import enums.SessionEnum;
 import users.IllegalOperationException;
 import attributes.Course;
 import attributes.Data;
-import attributes.Room;
 import attributes.Session;
 import attributes.Student;
 
