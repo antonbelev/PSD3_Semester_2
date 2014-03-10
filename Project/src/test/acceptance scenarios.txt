@@ -18,6 +18,10 @@ User story 8
     
     Acceptance conditions - if the invocation of the method assignRoomToSlot with parameters  roomName and sessionName, successfully assign room to the already existing session, then the JUnit test case should pass.
 
+User Story 9
+
+	Acceptance condition - if the invocation of the method checkForNoTimeslotClashes with parameters sessionTime and studentName, successfully checking if the session that he student has enrolled for are not clashing, then the JUnit test case should pass.
+	  
 User story 11
 
     Acceptance conditions - if the method bookCourseSessionSlots successfully assigns an existing student to an existing session then the new student should appear in the students hashmap inside this existing session. If that is the case the JUnit test case should pass.
