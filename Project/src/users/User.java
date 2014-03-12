@@ -129,4 +129,15 @@ public class User implements AdminInterface, LecturerInterface,
 		return data.authenticate(myCampusService, username, password);		
 	}
 
+	@Override
+	public String checkForCourseClashes() throws IllegalOperationException {
+		if (!isAdmin)
+			throw new IllegalOperationException(
+					"Permission denined. The current user does not have the permissions to execute this operation");
+		else {
+			return data.checkForCourseClashes();
+			
+		}			
+	}
+
 }

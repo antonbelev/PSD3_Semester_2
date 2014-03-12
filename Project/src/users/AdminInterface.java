@@ -10,5 +10,8 @@ public interface AdminInterface extends AuthenticateInterface {
 	
 	public void createSlotForSession(Date start, Date end, String sessionName)
 			throws IllegalOperationException;
+	
+	public String checkForCourseClashes()
+			throws IllegalOperationException;
 
 }

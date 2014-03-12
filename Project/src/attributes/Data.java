@@ -183,6 +183,11 @@ public class Data implements DataInterface{
 		return myCampusService.getUsers().get(username).equals(password);
 	}
 
+	public String checkForCourseClashes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 }
