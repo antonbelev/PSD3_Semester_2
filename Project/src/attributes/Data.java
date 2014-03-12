@@ -184,10 +184,40 @@ public class Data implements DataInterface{
 	}
 
 	public String checkForCourseClashes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	
+		
+		HashMap<String, Course> clashingCourses = new HashMap<String, Course>();
+		
+		HashMap<String, Course> courseSet = getCourses();
+		
+		String clash = "The following courses overlap: \n";
+		String noClash = "There are no overlapping courses.\n";
+		
+		for (Entry<String, Course> course1 : courseSet.entrySet()){
+			for (Entry<String, Course> course2 : courseSet.entrySet()){
+				if (!course1.getKey().equals(course2.getKey())){
+					for (Entry<String, Session> s1 : course1.getValue().getSessions().entrySet()){
+						for (Entry<String, Session> s2 : course2.getValue().getSessions().entrySet()){
+							Session ses1 = s1.getValue();
+							Session ses2 = s2.getValue();
+							if (!s1.getKey().equals(s2.getKey())){
+								if (ses1.getStart().compareTo(ses2.getEnd()) <= 0
+										&& ses2.getStart().compareTo(ses1.getEnd()) <= 0){
+									clashingCourses.put(course1.getKey(), course1.getValue());
+									clashingCourses.put(course2.getKey(), course2.getValue());
+								}
+							}
+						}
+					}					
+				}
+			}
+		}
+		
+		if (clashingCourses.size() == 0)
+			return noClash;
+		
+		for (Entry<String, Course> course : clashingCourses.entrySet()){
+			clash += course.getKey() + "\n";
+		}	
+		return clash;
+	}	
 }
