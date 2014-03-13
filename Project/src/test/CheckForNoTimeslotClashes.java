@@ -59,11 +59,11 @@ public class CheckForNoTimeslotClashes {
 		data.getSessions().put(sess2.getSessionName(), sess2);
 		
 		data.getCourses().put(c1.getCourseName(), c1);
-		data.getCourses().put(c1.getCourseName(), c2);
+		data.getCourses().put(c2.getCourseName(), c2);
 		
 		String output = admin.checkForCourseClashes();
 		System.out.println(output);
-		assertTrue(output.contains("Lab1") && output.contains("Lab2"));
+		assertTrue(output.contains("PSD3") && output.contains("DB3"));
 		
 		} catch (IllegalOperationException e) {
 			e.printStackTrace();
